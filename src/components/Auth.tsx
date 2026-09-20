@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 import { GoogleLogin } from "@react-oauth/google";
-import GoogleIcon from "@mui/icons-material/Google";
 
 const Auth = ({ type }: { type: "signup" | "signin" }) => {
   const isSignup = type === "signup";
