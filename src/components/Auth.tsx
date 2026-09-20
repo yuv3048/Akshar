@@ -145,7 +145,7 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
         <LabelledInput
           label="Email"
           type="email"
-          placeholder="yuvi7341@gmail.com"
+          placeholder="enter email here.."
           value={postInputs.email}
           onChange={(e) =>
             setPostInputs((current) => ({
@@ -159,7 +159,7 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
         <LabelledInput
           label="Password"
           type="password"
-          placeholder="••••••••"
+          placeholder="enter password here.."
           value={postInputs.password}
           onChange={(e) =>
             setPostInputs((current) => ({
