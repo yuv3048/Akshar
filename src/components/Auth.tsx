@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 import { GoogleLogin } from "@react-oauth/google";
-import GoogleIcon from '@mui/icons-material/Google';
+import GoogleIcon from "@mui/icons-material/Google";
 
 const Auth = ({ type }: { type: "signup" | "signin" }) => {
   const isSignup = type === "signup";
@@ -244,20 +244,14 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
           {loading ? "Please wait..." : isSignup ? "Create account" : "Sign in"}
         </button>
 
-        {/* Divider */}
-
-        <div className="my-5 flex items-center gap-3">
+        <div className="my-6 flex items-center gap-3">
           <div className="h-px flex-1 bg-gray-300 dark:bg-gray-700" />
           <span className="text-xs font-medium text-gray-400">OR</span>
           <div className="h-px flex-1 bg-gray-300 dark:bg-gray-700" />
         </div>
 
-        <div className="relative">
-          {/* Your actual Google OAuth button */}
-          <div
-            id="google-login-hidden"
-            className="pointer-events-none absolute inset-0 z-0 flex justify-center opacity-0"
-          >
+        <div className="flex w-full justify-center">
+          <div className="w-full">
             <GoogleLogin
               onSuccess={(response) => {
                 if (response.credential) {
@@ -267,25 +261,14 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
               onError={() => {
                 setError("Google login failed. Please try again.");
               }}
+              useOneTap={false}
+              theme="outline"
+              size="large"
+              width="100%"
+              text="continue_with"
+              shape="rectangular"
             />
           </div>
-
-          {/* Custom button */}
-          <button
-            type="button"
-            onClick={() => {
-              const googleButton = document.querySelector(
-                "#google-login-hidden div[role='button']",
-              ) as HTMLElement | null;
-
-              googleButton?.click();
-            }}
-            className="relative z-10 flex h-12 w-full items-center justify-center gap-3 rounded-xl border border-gray-300 bg-white px-4 text-sm font-semibold text-gray-800 shadow-sm transition-all duration-200 hover:border-gray-400 hover:bg-gray-50 hover:shadow-md active:scale-[0.99] dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-800"
-          >
-            <GoogleIcon className="text-[21px]" />
-
-            <span>Continue with Google</span>
-          </button>
         </div>
       </div>
     </div>
