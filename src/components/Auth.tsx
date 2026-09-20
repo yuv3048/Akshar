@@ -249,8 +249,8 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
           <div className="h-px flex-1 bg-gray-300 dark:bg-gray-700" />
         </div>
 
-        <div className="flex w-full justify-center">
-          <div className="w-full">
+        <div className="flex w-full justify-center items-center">
+          <div className="w-full max-w-100 overflow-hidden rounded-xl">
             <GoogleLogin
               onSuccess={(response) => {
                 if (response.credential) {
@@ -263,9 +263,9 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
               useOneTap={false}
               theme="outline"
               size="large"
-              width="100%"
               text="continue_with"
               shape="rectangular"
+              width="400"
             />
           </div>
         </div>
