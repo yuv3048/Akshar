@@ -1,6 +1,6 @@
 # Akshar — Frontend
 
-Akshar is a modern blogging platform frontend built with **React, TypeScript, Vite, and Tailwind CSS**.
+Akshar is a modern blogging platform frontend built with **React, TypeScript, Vite, Tailwind CSS, and Hono**.
 
 It provides authentication, Google OAuth, blog creation and management, user profiles, and responsive dark/light mode UI.
 
@@ -14,6 +14,8 @@ It provides authentication, Google OAuth, blog creation and management, user pro
 - Axios
 - Google OAuth
 - Material UI Icons
+- Hono
+- Cloudflare Workers
 
 ## Routes
 
@@ -32,14 +34,20 @@ It provides authentication, Google OAuth, blog creation and management, user pro
 
 The frontend communicates with the deployed backend through `src/config.ts`.
 
-Set the backend URL to the deployed Cloudflare Worker:
-
 ```ts
-export const BACKEND_URL = "https://your-backend.workers.dev";
-
+export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+```
 ## Environment Variables
 
 Create a `.env` file in the frontend root:
 
 ```env
 VITE_GOOGLE_CLIENT_ID=your_google_client_id
+VITE_BACKEND_URL=https://backend.yuvi7341.workers.dev
+```
+
+## Deployment
+
+**Live Website:**  
+https://akshar-xi-ruddy.vercel.app
+
